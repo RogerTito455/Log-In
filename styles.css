@@ -1,3 +1,4 @@
+/* Reseteo global */
 * {
     padding: 0;
     margin: 0;
@@ -14,9 +15,10 @@ body{
     color: #333333;
 }
 
+/* Ajuste de la regla para imágenes, es preferible usar clases específicas */
 img {
     width: auto;
-    height: 50vh;
+    height: 50vh; /* Considerar aplicar esto a una clase específica si no todas las imágenes deben seguir esta regla */
 }
 
 .container {
@@ -33,100 +35,128 @@ img {
     transform: translateY(-10px);
     box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.2), 0px 20px 50px rgba(0, 0, 0, 0.15), inset 0px -3px 0px rgba(0, 0, 0, 0.05);
 }
+
 .content {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
+/* Agrupación de márgenes y anchos en los elementos dentro de .content */
 .content h1 {
     margin-top: 1rem;
     margin-bottom: 1.5rem;
 }
-.content p {
-    width: 90%;
-    margin-bottom: 2rem;
+
+.content p,
+.content input,
+.content .buttons,
+.log-in h3,
+.options,
+.sign-up {
+    width: 90%; /* Regla agrupada para mantener consistencia en el ancho */
+    margin-bottom: 2rem; /* Regla agrupada para consistencia en el espaciado */
 }
+
+/* Ajuste en el input para accesibilidad */
 .content input {
-    width: 90%;
     padding: 1rem;
-    margin-bottom: 2rem;
-    border: 2px  solid #BFBFBF;
+    border: 2px solid #BFBFBF;
     border-radius: 1rem;
+    min-height: 48px; /* Asegura un tamaño mínimo táctil para accesibilidad */
 }
+
 .content .buttons {
     display: flex;
     justify-content: space-between;
-    width: 90%;
-    margin-bottom: 2rem;
 }
 
+/* Ajuste de la transición de tamaño */
 .content .buttons .button-left {
     color: #7160E2;
     text-decoration: none;
     font-weight: 500;
-    transition: font-size 0.3s ease-out;
-}
-.content .buttons .button-left:hover {
-    font-size: 1.1rem;
+    transition: transform 0.3s ease-out; /* Cambiado a 'transform' para evitar problemas de layout */
 }
 
-.content .buttons .button-right{
+.content .buttons .button-left:hover {
+    transform: scale(1.1); /* Reemplazado 'font-size' por 'scale' para mejorar la animación */
+}
+
+/* Ajuste de sombras en el botón derecho */
+.content .buttons .button-right {
     border: none;
     background-color: #7160E2;
     color: white;
     padding: 1.2rem 2rem;
     border-radius: 0.5rem;
     cursor: pointer;
-    box-shadow: 0px 2px 20px ;
-    transition: box-shadow 0.3s ease-in;
     box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in;
 }
-.content .buttons .button-right:hover{
-    box-shadow: 0px 2px 20px #3f26e2;
+
+.content .buttons .button-right:hover {
+    box-shadow: 0px 2px 20px rgba(63, 38, 226, 0.6); /* Ajuste para que el color sea más suave y consistente */
 }
-.container  hr {
+
+/* Agrupación de reglas para hr */
+.container hr {
     width: 90%;
     margin-bottom: 2rem;
 }
-.log-in h3{
+
+.log-in h3 {
     text-align: center;
-    width: 90%;
-    margin-bottom: 2rem;
     font-size: 0.9rem;
-    color: grey;
+    color: #666666; /* Cambiado a un gris más oscuro para mejorar la legibilidad */
 }
+
 .options {
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
     gap: 24px;
     justify-content: center;
-    margin-bottom: 2rem;
-
 }
+
+/* Ajuste de bordes en botones de opciones */
 .options button {
     width: 35%;
     padding: 1rem 0.7rem;
-    border: 3px solid grey;
+    border: 3px solid #BFBFBF; /* Color de borde ajustado para consistencia */
     border-radius: 1em;
     background-color: white;
     cursor: pointer;
     transition: border 0.1s ease-out;
 }
+
 .options button:hover {
     border: 3px solid #7160E2;
 }
+
 .sign-up {
-    width: 90%;
     text-align: center;
     font-size: 0.8rem;
 }
 
 .sign-up a {
-    color: #8860E7;
+    color: #7160E2; /* Ajuste de color para consistencia */
 }
+
+/* Media Query para pantallas más anchas */
 @media (min-width: 1440px) {
     .container {
         display: flex;
+    }
+}
+
+/* Media Queries adicionales para mejor responsividad */
+/* Dispositivos móviles pequeños */
+@media (max-width: 768px) {
+    .content input, .options button {
+        width: 100%;
+    }
+    
+    .options button {
+        width: 80%; /* Ajuste de ancho para mejorar la disposición en pantallas pequeñas */
     }
 }
